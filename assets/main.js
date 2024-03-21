@@ -82,7 +82,7 @@ getDadosDaTabelaPecasPorCode(codigoProcurado)
             const code = dados.code;
             const location = dados.location;
             const descricao = dados.peca;
-            const url = dados.img;
+            const url = `assets/img/${code}.png`;
 
             // Use as variáveis conforme necessário
             console.log("Código:", code);
@@ -95,4 +95,36 @@ getDadosDaTabelaPecasPorCode(codigoProcurado)
             document.getElementById("img").src = url;
         } 
     });
+});
+
+document.getElementById('salvarBotao').addEventListener('click', function() {
+    // Obtém a referência para a div
+    const div = document.getElementById('minhaDiv');
+
+    // Cria um canvas temporário
+    const canvas = document.createElement('canvas');
+    canvas.width = div.offsetWidth;
+    canvas.height = div.offsetHeight;
+
+    // Obtém o contexto 2D do canvas
+    const ctx = canvas.getContext('2d');
+
+    // Desenha o conteúdo da div no canvas
+    const htmlContent = div.innerHTML;
+
+    // Desenha o conteúdo HTML da div no canvas
+    const img = new Image();
+    img.onload = function() {
+        ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+
+        // Obtém a URL da imagem a partir do canvas
+        const dataURL = canvas.toDataURL('image/png');
+
+        // Cria um elemento <a> para fazer o download da imagem
+        const link = document.createElement('a');
+        link.href = dataURL;
+        link.download = 'conteudoDaDiv.png';
+        link.click();
+    };
+    img.src = 'data:image/svg+xml;base64,' + btoa(unescape(encodeURIComponent(htmlContent)));
 });

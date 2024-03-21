@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Buscar Peça por Código</title>
   <script type="module" src="./assets/main.js"></script>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <link href="./src/output.css" rel="stylesheet">
   <style>
     /* Estilos normais */
     .content {
@@ -28,23 +28,24 @@
     }
 </style>
 </head>
-<body >
+
+<body class="flex justify-center bg-gradient-to-r from-slate-950 from-40% to-slate-900 bg-blend-lighten md:bg-blend-darken">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-  <div class="conatiner flex text-center">
-    <h1 class="pt-4">Buscar Peça por Código</h1>
-    <div class="container align-items-start">
-      <form action="" class="col text-start">
-        <input class="row mb-3 form-control" type="text" name="name" id="name" placeholder="Digite o código">
-        <input class="row mb-3 form-control" type="text" name="preco" id="preco" placeholder="Digite o preço do produto">
-        <input class="row mb-3 form-control" type="text" name="desconto" id="desconto" placeholder="Digite o valor do desconto">
-        <input class="row btn btn-primary" type="submit" id="send" value="Enviar">
+  <div class=" flex text-center pt-4 flex-col justify-items-center">
+    <h1 class="text-8xl mb-12 text-white">Buscar Peça por Código</h1>
+    <div class="container align-items-start mb-4">
+      <form action="" class="col text-start flex flex-col text-xl justify-center font-mono font-bold">
+        <input class="row px-2 mb-1 border-2 border-solid border-indigo-500/50 rounded-md focus:border-4 focus:border-indigo-500" type="text" name="name" id="name" placeholder="Digite o código">
+        <input class="row px-2 mb-1 form-control border border-solid border-indigo-500/50 rounded-md focus:border-4" type="text" name="preco" id="preco" placeholder="Digite o preço do produto">
+        <input class="row px-2 mb-1 form-control border border-solid border-indigo-500/50 rounded-md focus:border-4" type="text" name="desconto" id="desconto" placeholder="Digite o valor do desconto">
+        <input class="row mt-2 bg-gradient-to-r from-green-400 to-blue-500 hover:from-pink-500 hover:to-yellow-500 text-white max-w-32 max-h-32 rounded-lg" type="submit" id="send" value="Enviar">
       </form>
     </div>
-      <div class="printable container text-start pt-4">
+      <div class="printable container text-start pt-4 bg-white w-[1080px] h-[1920px]">
           <div>
-      <h2 id="descricao"></h2>
+      <h2 id="descricao" class="text-xl font-sans font-bold"></h2>
       <p><strong>cod:</strong> <span id="codigo"></span></p>
-      <img id="img" src="" alt="Imagem da Peça">
+      <img id="img" src="" alt="Imagem da Peça" class="rounded-xl shadow-lg">
     </div>
     <div>
 
@@ -52,10 +53,10 @@
       <h2>POR: R$<strong id="z"></strong></h2>  
       <!-- <p><strong>Valor do desconto: </strong> <span>R$</span><span id="y"></span></p> -->
       <!-- <p><strong>Porcentagem do desconto: </strong> <span id="porcentagem"></span><span>%</span></p> -->
-      <h1><strong id="porcentagem"></strong><strong>%</strong></h1>
+      <h1><strong id="porcentagem"></strong><strong>% OFF</strong></h1>
     </div>
   </div>
-  <button class="btn btn-primary" onclick="window.print()">Imprimir</button>
+  <button class="row bg-gradient-to-r from-green-400 to-blue-500 hover:from-pink-500 hover:to-yellow-500 text-white max-w-32 max-h-32 rounded-lg" onclick="window.print() ">Imprimir</button>
   </div>
 </body>
 </html>
